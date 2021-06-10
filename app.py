@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://my_user:my_password@172.17.0.2/szczepienia'
 db = SQLAlchemy(app)
 
 class Pacjent(db.Model):
@@ -13,7 +13,6 @@ class Pacjent(db.Model):
     pesel = db.Column(db.String(200), nullable=False)
     data = db.Column(db.String(200), nullable=False)
     godzina = db.Column(db.String(200), nullable=False)
-    date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
     def __repr__(self):
         return '<Pacjent %r>' % self.id
@@ -39,7 +38,7 @@ def index():
             return 'Wystąpił problem z dodaniem terminu!'
 
     else:
-        termin_szczepienia = Pacjent.query.order_by(Pacjent.date_created).all()
+        termin_szczepienia = Pacjent.query.order_by(Pacjent.id).all()
         return render_template('index.html', termin_szczepienia=termin_szczepienia)
 
 

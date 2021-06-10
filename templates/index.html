@@ -37,7 +37,6 @@
             <th>Pesel</th>
             <th>Data szczepienia</th>
             <th>Godzina</th>
-            <th>Czas dodania</th>
             <th>Modyfikacja</th>
         </tr>
         {% for termin in termin_szczepienia %}
@@ -47,7 +46,6 @@
                 <td>{{ termin.pesel }}</td>
                 <td>{{ termin.data }}</td>
                 <td>{{ termin.godzina }}</td>
-                <td>{{ termin.date_created.date() }}</td>
                 <td>
                     <a href="/delete/{{termin.id}}">Usuń</a>
                 </td>
