@@ -6,12 +6,12 @@
 
 {% block body %}
 <div class="content">
-    <h1 style="text-align: center; margin-top: 10px; padding-top: 20px;">TERMINY SZCZEPIEŃ</h1>
+    <h1 style="text-align: center; margin-top: 10px; font-size:40px; color: rgb(3, 54, 33)">TERMINY SZCZEPIEŃ</h1>
 
     <!-- PRZYCISK -->
     <div class="form">
         <form action="/" method="POST">
-            Imię: <input type="text" name="imie" id="content">
+            Imię: <input type="text" name="imie" class="tekst">
             <br><br>
             Nazwisko: <input type="text" name="nazwisko" class="tekst">
             <br><br>
@@ -21,7 +21,7 @@
             <br><br>
             Godzina szczepienia: <input type="godzina" name="godzina" class="tekst">
             <br><br>
-            <input type="submit" value="Dodaj">
+            <input type="submit" value="Dodaj" class="button">
         </form>
     </div>
 
@@ -54,4 +54,5 @@
     </table>
     {% endif %}
 </div>
+<div class="circle1"></div>
 {% endblock %}
